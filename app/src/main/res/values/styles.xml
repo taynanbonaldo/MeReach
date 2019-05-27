@@ -32,6 +32,7 @@
     <style name="EditTextStyle" parent="Base.Widget.AppCompat.EditText">
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="EditTextStyle.Light" parent="EditTextStyle">

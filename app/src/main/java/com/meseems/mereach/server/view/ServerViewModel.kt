@@ -135,13 +135,7 @@ class ServerViewModel(
             .filter { it is SaveServerUseCase.Result.Success }
             .map { it as SaveServerUseCase.Result.Success }
             .doOnNext { result ->
-                serverList.add(
-                    result.server.toServerItemView(Action {
-                        selectServer(result.server)
-                    }, Action {
-                        askToRemoveServer(result.server)
-                    })
-                )
+                onRefresh()
             }
 
     fun deleteServer(server: Server) : Observable<DeleteServerUseCase.Result.Success>  =
