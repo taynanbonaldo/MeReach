@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.meseems.mereach.server.view.ServerViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".server.MainActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:showIn="@layout/activity_main"
+                tools:context=".server.MainActivity">
+
+            <LinearLayout
+                    android:id="@+id/linearlayout_main_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="@{viewModel.serverList.isEmpty()}"
+                    android:paddingTop="@dimen/margin_default"
+                    android:paddingBottom="@dimen/margin_default"
+                    android:orientation="vertical" >
+
+                <ImageView
+                        android:id="@+id/imageview_ranking_placeholder_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_global"/>
+
+                <TextView
+                        android:id="@+id/textview_ranking_placeholder_title"
+                        android:layout_marginTop="10dp"
+                        android:textSize="16sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:gravity="center"
+                        android:text="@string/servers_placeholder_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                <TextView
+                        android:id="@+id/textview_ranking_placeholder_subtitle"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/servers_placeholder_message"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center"
+                        android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/swiperefresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:isRefreshing="@{viewModel.loading}"
+                    app:onRefresh="@{() -> viewModel.onRefresh()}" >
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipToPadding="false"
+                        android:paddingTop="@dimen/recyclerview_margin"
+                        android:paddingBottom="@dimen/recyclerview_margin"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                android:onClick="@{() -> viewModel.addNewServer()}"
+                app:srcCompat="@drawable/ic_action_add"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

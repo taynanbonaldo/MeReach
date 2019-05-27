@@ -1,0 +1,16 @@
+<resources>
+    <string name="servers_placeholder_title">Não há servidores ainda</string>
+    <string name="servers_placeholder_message">Adicione um novo servidor\npara verificar o status</string>
+
+    <string name="new_server_title">Novo Servidor</string>
+    <string name="new_server_hint_name">Nome do Servidor</string>
+    <string name="new_server_hint_url">URL do Servidor</string>
+
+    <string name="remove_server_title">Atenção!</string>
+    <string name="remove_server_message">Tem certeza que deseja remover o servidor %s?</string>
+
+    <string name="all_message_an_error_occurred_generic">Ocorreu um erro inesperado.</string>
+    <string name="all_button_ok">Ok</string>
+    <string name="all_button_save">Salvar</string>
+    <string name="all_button_cancel">Cancelar</string>
+</resources>
