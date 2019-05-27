@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/margin_default"
+    android:paddingLeft="@dimen/margin_default"
+    android:paddingRight="@dimen/margin_default"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinput_new_server_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edittext_new_server_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/new_server_hint_name"
+            android:inputType="textCapWords"
+            android:singleLine="true"
+            android:theme="@style/EditTextStyle.Light" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinput_new_server_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"  >
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edittext_new_server_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/new_server_hint_url"
+            android:inputType="textWebEditText"
+            android:singleLine="true"
+            android:theme="@style/EditTextStyle.Light" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>
